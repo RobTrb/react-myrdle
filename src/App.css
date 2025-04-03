@@ -1,42 +1,69 @@
-#root {
-  max-width: 1280px;
+#root {  
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+.appContainer {
+  background-image: url('./assets/appBkgrnd.webp');
+  background-size: 100% 100%;
+  border-radius: 10px;
+  width: 80vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  margin-top: 20px;
+  width: 40%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.appMain {
+  background-color: rgba(138, 43, 226, 80%);
+  width: 80%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px rgb(49, 49, 49);
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.mainMenuContainer {
+  margin: auto auto auto auto;
+  background-color: rgb(70, 23, 114);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgb(49, 49, 49);
 }
 
-.card {
-  padding: 2em;
+button {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;  
+  font-size: x-large;
+  box-shadow: 5px 5px 10px rgb(49, 49, 49);
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+button:hover {
+  background-color: rgb(153, 80, 221);
+}
+
+.aboutContainer {
+  opacity: 100%;    
+  max-width: 90%;
+  margin: auto auto auto auto;
+}
+
+.aboutArticle {
+  padding: 100px;
+  background-color: rgb(70, 23, 114);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 5px 5px 10px rgb(49, 49, 49);
+  margin-bottom: 20px;
 }
