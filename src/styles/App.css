@@ -1,11 +1,11 @@
-#root {  
+#root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
 .appContainer {
-  background-image: url('../assets/appBkgrnd.webp');
+  background-image: url("../assets/appBkgrnd.webp");
   background-size: 100% 100%;
   border-radius: 10px;
   width: 80vw;
@@ -22,54 +22,16 @@
 }
 
 .appMain {
-  background-color: rgba(138, 43, 226, 80%);  
+  background-color: rgba(138, 43, 226, 80%);
   width: 90%;
-  height: 90%;  
+  height: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
-  border-radius: 10px;  
+  border-radius: 10px;
   box-shadow: 10px 10px 10px rgb(49, 49, 49);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-}
-
-.mainMenuContainer {
-  margin: auto auto auto auto;
-  background-color: rgb(70, 23, 114);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 10px rgb(49, 49, 49);
-}
-
-button {
-  border-radius: 5px;
-  border: none;
-  padding: 10px;  
-  font-size: x-large;
-  box-shadow: 5px 5px 10px rgb(49, 49, 49);
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-button:hover {
-  background-color: rgb(153, 80, 221);
-}
-
-.aboutContainer {
-  opacity: 100%;    
-  max-width: 90%;
-  margin: auto auto auto auto;
-}
-
-.aboutArticle {
-  padding: 100px;
-  background-color: rgb(70, 23, 114);
-  border-radius: 10px;
-  color: white;
-  box-shadow: 5px 5px 10px rgb(49, 49, 49);
-  margin-bottom: 20px;
 }

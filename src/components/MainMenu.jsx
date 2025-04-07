@@ -1,3 +1,5 @@
+import "../styles/MainMenu.css"
+
 export default function MainMenu({onAboutClick, onNewGameClick}) { 
 
   return (

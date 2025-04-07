@@ -1,3 +1,5 @@
+import "../styles/About.css";
+
 export default function About({ onBackToMenu }) {
   return (
     <div className="aboutContainer">

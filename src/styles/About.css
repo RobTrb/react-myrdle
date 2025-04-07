@@ -1,0 +1,14 @@
+.aboutContainer {
+  opacity: 100%;
+  max-width: 90%;
+  margin: auto auto auto auto;
+}
+
+.aboutArticle {
+  padding: 100px;
+  background-color: rgb(70, 23, 114);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 5px 5px 10px rgb(49, 49, 49);
+  margin-bottom: 20px;
+}

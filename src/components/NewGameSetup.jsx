@@ -1,15 +1,17 @@
+import "../styles/NewGameSetup.css"
+
 export default function NewGameSetup({ onBackToMenu }) {
   return (
     <div className="mainMenuContainer" alt="Setting up new game">
       <h1>New Game</h1>
-      <h5>How many letters in the word:</h5>
-      <input type="number"></input>
-      <h5>Word can contain the same letter in more than one place</h5>
-      <label class="switch">
+      <h4>How many letters in the word:</h4>
+      <input type="number" className="nrInput"></input>
+      <h4>Can contain same letter in more places:</h4>
+      <label className="switch">
         <input type="checkbox"></input>
-        <span class="slider round"></span>
+        <span className="slider round"></span>
       </label>
-      <button>Start Game</button>
+      <button className="startGame">Start Game</button>
       <button onClick={onBackToMenu}>Back to main menu</button>
     </div>
   );
