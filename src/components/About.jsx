@@ -8,7 +8,7 @@ export default function About({ onBackToMenu }) {
         est velit et, quibusdam non nihil. Quibusdam nisi iusto doloribus saepe
         praesentium obcaecati nemo, atque minus dicta enim distinctio.
       </article>
-      <button onClick={onBackToMenu}>Back to menu</button>
+      <button onClick={onBackToMenu}>Back to main menu</button>
     </div>
   );
 }
