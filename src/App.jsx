@@ -17,8 +17,10 @@ function App() {
 
   return (
     <div className="appContainer">
-      <img src={logo} className="logo" alt="logo"></img>
+      
       <div className="appMain">
+      <img src={logo} className="logo" alt="logo"></img>
+      
         {isAboutActive ? (
           <About onBackToMenu={handleBackToMenu} />
         ) : (
