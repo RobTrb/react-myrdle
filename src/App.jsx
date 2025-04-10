@@ -3,25 +3,22 @@ import "./styles/App.css";
 import logo from "./assets/logo.webp";
 import MainMenu from "./components/MainMenu";
 import About from "./components/About";
-import NewGameSetup from "./components/NewGameSetup";
+import Game from "./components/Game"
 
 function App() {
   const [isAboutActive, setIsAboutActive] = useState(false);
-  const [isNewGameSetupActive, setNewGameSetupActive] = useState(false);
+  const [isGameActive, setIsGameActive] = useState(false);  
 
   const handleAboutClick = () => {
-    setIsAboutActive(true);
-    setNewGameSetupActive(false);
+    setIsAboutActive(true);    
   };
-
-  const handleNewGameSetupClick = () => {
-    setNewGameSetupActive(true);
-    setIsAboutActive(false);
+  
+  const handleNewGameClick = () => {
+    setIsGameActive(true)
   };
 
   const handleBackToMenu = () => {
-    setIsAboutActive(false);
-    setNewGameSetupActive(false);
+    setIsAboutActive(false)    
   };
 
   return (
@@ -31,12 +28,12 @@ function App() {
 
         {isAboutActive ? (
           <About onBackToMenu={handleBackToMenu} />
-        ) : isNewGameSetupActive ? (
-          <NewGameSetup onBackToMenu={handleBackToMenu} />
+        ) : isGameActive ? (
+          <Game />
         ) : (
           <MainMenu
             onAboutClick={handleAboutClick}
-            onNewGameClick={handleNewGameSetupClick}
+            onNewGameClick={handleNewGameClick}            
           />
         )}
       </div>

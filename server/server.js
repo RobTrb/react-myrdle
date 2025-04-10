@@ -17,4 +17,5 @@ app.get('/', async (req, res) =>{
 
 app.use('/assets', express.static('./dist/assets'))
 
+console.log('Server listening on port: 5080')
 app.listen(5080)
