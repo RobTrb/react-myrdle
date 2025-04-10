@@ -1,10 +1,10 @@
 import { useState, StrictMode } from "react";
 import NewGameSetup from "./NewGameSetup";
 
-function Game() {
+function Game({ onBackToMenu }) {
     
     return(        
-        <NewGameSetup />        
+        <NewGameSetup onBackToMenu={onBackToMenu}/>        
     )
 }
 

@@ -18,7 +18,8 @@ function App() {
   };
 
   const handleBackToMenu = () => {
-    setIsAboutActive(false)    
+    setIsAboutActive(false);
+    setIsGameActive(false);   
   };
 
   return (
@@ -29,7 +30,7 @@ function App() {
         {isAboutActive ? (
           <About onBackToMenu={handleBackToMenu} />
         ) : isGameActive ? (
-          <Game />
+          <Game onBackToMenu={handleBackToMenu}/>
         ) : (
           <MainMenu
             onAboutClick={handleAboutClick}
