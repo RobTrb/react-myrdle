@@ -16,14 +16,14 @@
 
 .logo {
   margin-top: 20px;
-  width: 40%;
+  width: 20%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .appMain {
   background-color: rgba(138, 43, 226, 80%);
-  width: 90%;
+  width: 95%;
   height: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -34,4 +34,10 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+}
+
+@media (max-width: 700px) {
+  .logo {
+    width: 50%;
+  }
 }

@@ -3,11 +3,11 @@ import "./styles/App.css";
 import logo from "./assets/logo.webp";
 import MainMenu from "./components/MainMenu";
 import About from "./components/About";
-import Game from "./components/Game"
+import GameApp from "./GameApp"
 
 function App() {
   const [isAboutActive, setIsAboutActive] = useState(false);
-  const [isGameActive, setIsGameActive] = useState(false);  
+  const [isGameAppActive, setIsGameActive] = useState(false);  
 
   const handleAboutClick = () => {
     setIsAboutActive(true);    
@@ -29,8 +29,8 @@ function App() {
 
         {isAboutActive ? (
           <About onBackToMenu={handleBackToMenu} />
-        ) : isGameActive ? (
-          <Game onBackToMenu={handleBackToMenu}/>
+        ) : isGameAppActive ? (
+          <GameApp onBackToMenu={handleBackToMenu}/>
         ) : (
           <MainMenu
             onAboutClick={handleAboutClick}

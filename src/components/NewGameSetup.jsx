@@ -1,9 +1,16 @@
 import "../styles/NewGameSetup.css";
 import { useState } from "react";
 
-export default function NewGameSetup({ onBackToMenu }) {
-  const [nrValue, setNrValue] = useState(0);
-  const [letterRepeatValue, setLetterRepeatValue] = useState(false);
+export default function NewGameSetup({
+  onBackToMenu,
+  onStartGame,
+  nrValue,
+  setNrValue,
+  letterRepeatValue,
+  setLetterRepeatValue,
+}) {
+  //const [nrValue, setNrValue] = useState(0);
+  //const [letterRepeatValue, setLetterRepeatValue] = useState(false);
   const rangeOfLetters = letterRepeatValue ? "3-16" : "1-11";
 
   return (
@@ -44,7 +51,13 @@ export default function NewGameSetup({ onBackToMenu }) {
           <span className="slider round"></span>
         </label>
 
-        <button type="submit" className="startGame">
+        <button
+          className="startGame"
+          onClick={(ev) => {
+            ev.preventDefault();
+            onStartGame();
+          }}
+        >
           Start Game
         </button>
 
