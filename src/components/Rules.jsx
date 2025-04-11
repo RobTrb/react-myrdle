@@ -1,10 +1,17 @@
 import "../styles/Rules.css";
 
-function Rules() {
+function Rules({ rulesModal, setRulesModal }) { 
+
   return (
-    <div className="rulesContainer">
+    <>    
+    <div className={rulesModal}>
+      <span className="closeRules" onClick={() =>{        
+        setRulesModal("rulesModalContainer")
+      }}>
+        X
+      </span>
       <h2 className="rulesHeader">Rules</h2>
-      <p className= "rulesText">
+      <p className="rulesText">
         Guess the correct word. The color of the letters in the boxes mean the
         following:
       </p>
@@ -23,6 +30,7 @@ function Rules() {
         </li>
       </ul>
     </div>
+    </>
   );
 }
 

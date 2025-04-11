@@ -12,12 +12,10 @@
     text-align: center;
     font-size: 1.5em;
     box-sizing: border-box;
-    width: 70%;
+    width: 60%;
     height: 100%;
     border: 0;
-    padding: 0;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    padding: 0;    
     background-color: rgb(70, 23, 114);    
     border: 2px solid rgb(138, 43, 226);
     border-right: none;
@@ -26,13 +24,28 @@
 
 .guessBtn {
     box-sizing: border-box;
-    width: 30%;
+    width: 20%;
     height: 100%;
     margin: 0;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    background-color: rgb(70, 23, 114);    
+    border: 2px solid rgb(138, 43, 226);    
+    padding: 5px;
+    box-shadow: 0;   
+}
+
+.rulesBtn {
+    box-sizing: border-box;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     background-color: rgb(70, 23, 114);    
     border: 2px solid rgb(138, 43, 226);    
     padding: 5px;
