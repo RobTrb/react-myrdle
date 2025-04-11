@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 
 const app = express()
 
-//Static route
+//Static route for frontend build
 app.get('/', async (req, res) =>{
     try {
     const buf = await fs.readFile('./dist/index.html')
@@ -17,5 +17,7 @@ app.get('/', async (req, res) =>{
 
 app.use('/assets', express.static('./dist/assets'))
 
-console.log('Server listening on port: 5080')
-app.listen(5080)
+//API routes
+
+
+export default app;

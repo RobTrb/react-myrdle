@@ -19,9 +19,9 @@ describe("serviceAdapter", () => {
     jest.setSystemTime(new Date());
 
     const timer = serviceAdapter.createTimer();
-    timer.start()    
+    timer.start();
     jest.advanceTimersByTime(135000);
     const stopTimer = timer.stop();
-    expect(stopTimer).toEqual('02 minutes and 15 seconds')
+    expect(stopTimer).toEqual("02 minutes and 15 seconds");
   });
 });

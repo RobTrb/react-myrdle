@@ -1,53 +1,59 @@
 .GuessInputContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 70%;
-    box-shadow: 0px 0px 0px rgb(172, 172, 172);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 70%;
+  box-shadow: 0px 0px 0px rgb(172, 172, 172);
 }
 
 .guessInputField {
-    text-align: center;
-    font-size: 1.5em;
-    box-sizing: border-box;
-    width: 60%;
-    height: 100%;
-    border: 0;
-    padding: 0;    
-    background-color: rgb(70, 23, 114);    
-    border: 2px solid rgb(138, 43, 226);
-    border-right: none;
-    box-shadow: 5px 5px 10px rgb(49, 49, 49) 
+  text-align: center;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  width: 60%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background-color: rgb(70, 23, 114);
+  border: 2px solid rgb(138, 43, 226);
+  border-right: none;
+  box-shadow: 5px 5px 10px rgb(49, 49, 49);
 }
 
 .guessBtn {
-    box-sizing: border-box;
-    width: 20%;
-    height: 100%;
-    margin: 0;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-color: rgb(70, 23, 114);    
-    border: 2px solid rgb(138, 43, 226);    
-    padding: 5px;
-    box-shadow: 0;   
+  box-sizing: border-box;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(70, 23, 114);
+  border: 2px solid rgb(138, 43, 226);
+  padding: 5px;
+  box-shadow: 0;
 }
 
 .rulesBtn {
-    box-sizing: border-box;
-    width: 20%;
-    height: 100%;
-    margin: 0;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    background-color: rgb(70, 23, 114);    
-    border: 2px solid rgb(138, 43, 226);    
-    padding: 5px;
-    box-shadow: 0;   
+  box-sizing: border-box;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: rgb(70, 23, 114);
+  border: 2px solid rgb(138, 43, 226);
+  padding: 5px;
+  box-shadow: 0;
+}
+
+@media (max-width: 700px) {
+  .GuessInputContainer {
+    width: 100%;
+  }
 }
