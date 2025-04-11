@@ -30,10 +30,15 @@
   margin-top: auto;
   margin-bottom: auto;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px rgb(49, 49, 49);
+  border: 5px solid rgb(70, 23, 114);  
+  box-shadow: 0px 0px 70px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  background-image: url("../assets/gameBkgrnd.webp"); 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 10px;
 }
 
 @media (max-width: 700px) {

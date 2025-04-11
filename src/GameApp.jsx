@@ -1,6 +1,7 @@
 import { useState, StrictMode } from "react";
 import NewGameSetup from "./components/NewGameSetup";
 import Game from "./components/Game";
+import Logo from "./components/Logo";
 
 function GameApp({ onBackToMenu }) {
   const [nrValue, setNrValue] = useState(0);
@@ -20,14 +21,17 @@ function GameApp({ onBackToMenu }) {
           onBackToMenu={onBackToMenu}
         />
       ) : (
-        <NewGameSetup
-          onBackToMenu={onBackToMenu}
-          onStartGame={handleStartGameClick}
-          nrValue={nrValue}
-          setNrValue={setNrValue}
-          letterRepeatValue={letterRepeatValue}
-          setLetterRepeatValue={setLetterRepeatValue}
-        />
+        <>
+          <Logo />
+          <NewGameSetup
+            onBackToMenu={onBackToMenu}
+            onStartGame={handleStartGameClick}
+            nrValue={nrValue}
+            setNrValue={setNrValue}
+            letterRepeatValue={letterRepeatValue}
+            setLetterRepeatValue={setLetterRepeatValue}
+          />
+        </>
       )}
     </>
   );

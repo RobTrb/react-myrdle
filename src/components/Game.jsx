@@ -1,42 +1,20 @@
 import { useState } from "react";
 import "../styles/Game.css";
+import QuitGame from "./QuitGame"
+import Logo from "./Logo"
+import Rules from "./Rules"
+import GuessInput from "./GuessInput"
 
 function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
-  const [quitModal, setQuitModal] = useState("quitModalContainer");
+    
   return (
     <div className="gameContainer">
-      <button
-        onClick={(ev) => {
-          ev.preventDefault();
-          setQuitModal("quitModalContainer active");
-          console.log(nrValue, letterRepeatValue);
-        }}
-      >
-        Quit Game
-      </button>
-      <div className={quitModal}>
-        <div className="quitModal">
-          <h3>Are you sure you want to quit?</h3>
-          <div className="modalButtons">
-            <button
-              onClick={(ev) => {
-                ev.preventDefault();
-                onBackToMenu();
-              }}
-            >
-              Yes
-            </button>
-            <button
-              onClick={(ev) => {
-                ev.preventDefault();
-                setQuitModal("quitModalContainer");
-              }}
-            >
-              No
-            </button>
-          </div>
-        </div>
-      </div>
+      <>      
+      <Logo />
+      <Rules nrValue={nrValue} letterRepeatValue={letterRepeatValue} />
+      <GuessInput />
+      <QuitGame onBackToMenu={onBackToMenu}/>
+      </>            
     </div>
   );
 }

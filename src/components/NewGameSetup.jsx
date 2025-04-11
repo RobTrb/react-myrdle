@@ -1,5 +1,4 @@
 import "../styles/NewGameSetup.css";
-import { useState } from "react";
 
 export default function NewGameSetup({
   onBackToMenu,
@@ -9,8 +8,6 @@ export default function NewGameSetup({
   letterRepeatValue,
   setLetterRepeatValue,
 }) {
-  //const [nrValue, setNrValue] = useState(0);
-  //const [letterRepeatValue, setLetterRepeatValue] = useState(false);
   const rangeOfLetters = letterRepeatValue ? "3-16" : "1-11";
 
   return (
