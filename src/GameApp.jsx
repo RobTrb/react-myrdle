@@ -7,6 +7,7 @@ function GameApp({ onBackToMenu }) {
   const [nrValue, setNrValue] = useState(0);
   const [letterRepeatValue, setLetterRepeatValue] = useState(false);
   const [isGameActive, setIsGameActive] = useState(false);
+  const [gameId, setGameId] = useState(null);
 
   const handleStartGameClick = () => {
     setIsGameActive(true);
@@ -30,6 +31,7 @@ function GameApp({ onBackToMenu }) {
             setNrValue={setNrValue}
             letterRepeatValue={letterRepeatValue}
             setLetterRepeatValue={setLetterRepeatValue}
+            setGameId={setGameId}
           />
         </>
       )}

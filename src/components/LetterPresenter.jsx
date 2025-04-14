@@ -1,14 +1,17 @@
 import "../styles/LetterPresenter.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 function LetterPresenter({ nrValue, checkedGuess, setCheckedGuess }) {
   useEffect(() => {
+    if(checkedGuess.length === 0){
     const newCheckedGuess = [];
     for (let i = 0; i < nrValue; i++) {
       newCheckedGuess.push({ letter: "-", result: "blank" });
     }
+    
     setCheckedGuess(newCheckedGuess);
-  }, [nrValue]);
+    }
+  }, [nrValue, checkedGuess]);
 
   return (
     <div className="letterPresenterContainer">

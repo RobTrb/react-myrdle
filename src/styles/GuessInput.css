@@ -1,9 +1,15 @@
-.GuessInputContainer {
+.guessModuleContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: auto auto auto auto;
+  align-items: center;
+}
+
+.guessInputContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  align-items: center;   
   width: 70%;
   box-shadow: 0px 0px 0px rgb(172, 172, 172);
 }
@@ -50,6 +56,22 @@
   border: 2px solid rgb(138, 43, 226);
   padding: 5px;
   box-shadow: 0;
+}
+
+.guessInputError {
+  display: none;  
+  font-size: larger;
+  font-weight: 400;  
+  color: red;
+  background-color: rgb(70, 23, 114);
+  border: 2px solid rgb(138, 43, 226);
+  border-radius: 20px;  
+  padding: 2px 10px 2px 10px;
+  box-shadow: 0px 0px 15px rgb(255, 255, 255);
+}
+
+.guessInputError.active {
+  display: flex;
 }
 
 @media (max-width: 700px) {

@@ -49,7 +49,7 @@ export const serviceAdapter = {
     return `${minutes} minutes and ${seconds} seconds`;
   },
   getRandomWord: async (letters, letterRepeat) => {
-    const inputFile = await fs.readFile("./words_data.json", "utf8");
+    const inputFile = await fs.readFile("./server/words_data.json", "utf8");
     const data = JSON.parse(inputFile);
 
     let filteredWords = data.words.filter((word) => {
@@ -66,6 +66,3 @@ export const serviceAdapter = {
     return randomWord;
   },
 };
-
-console.log(serviceAdapter.wordChecker("hleli", "hello"));
-console.log(serviceAdapter.formatTime(Date.now()));

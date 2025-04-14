@@ -7,6 +7,7 @@ export default function NewGameSetup({
   setNrValue,
   letterRepeatValue,
   setLetterRepeatValue,
+  setGameId,
 }) {
   const rangeOfLetters = letterRepeatValue ? "3-16" : "1-11";
 
@@ -50,8 +51,23 @@ export default function NewGameSetup({
 
         <button
           className="startGame"
-          onClick={(ev) => {
+          onClick={async (ev) => {
             ev.preventDefault();
+
+            const response = await fetch("api/games", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify ({
+                nrValue: parseInt(nrValue),
+                letterRepeatValue,
+              }),
+            });
+            
+            const data = await response.json();
+            console.log("Game created:", data.id)
+
             onStartGame();
           }}
         >
