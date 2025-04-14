@@ -5,8 +5,7 @@ function GuessInput({
   setRulesModal,
   gameId,
   setCheckedGuess,
-  setCurrentGame,
-  currentGame,
+  setCurrentGame,  
 }) {
   const [text, setText] = useState("");
   const [inputError, setInputError] = useState("guessInputError");

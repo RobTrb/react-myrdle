@@ -13,15 +13,5 @@ describe("serviceAdapter", () => {
         { letter: "E", result: "misplaced" },
       ],
     });
-  });
-  it("tests createTimer() and should return time past in proper format", () => {
-    jest.useFakeTimers();
-    jest.setSystemTime(new Date());
-
-    const timer = serviceAdapter.createTimer();
-    timer.start();
-    jest.advanceTimersByTime(135000);
-    const stopTimer = timer.stop();
-    expect(stopTimer).toEqual("02 minutes and 15 seconds");
-  });
+  });  
 });

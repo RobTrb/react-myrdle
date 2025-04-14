@@ -10,7 +10,7 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu, gameId }) {
   const [rulesModal, setRulesModal] = useState("rulesModalContainer");
   const [checkedGuess, setCheckedGuess] = useState([]);
   const [currentGame, setCurrentGame] = useState(null);
-  const [wonGame, setWonGame] = useState(false); 
+  const [wonGame, setWonGame] = useState(false);
 
   return (
     <div className="gameContainer">
@@ -27,12 +27,12 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu, gameId }) {
           checkedGuess={checkedGuess}
           setCheckedGuess={setCheckedGuess}
         />
-        <GuessInput          
-          setRulesModal={setRulesModal}          
+        <GuessInput
+          setRulesModal={setRulesModal}
           setCheckedGuess={setCheckedGuess}
           gameId={gameId}
           setCurrentGame={setCurrentGame}
-          currentGame={currentGame}         
+          currentGame={currentGame}
         />
         <QuitGame onBackToMenu={onBackToMenu} />
       </>

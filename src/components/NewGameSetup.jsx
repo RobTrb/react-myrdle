@@ -57,17 +57,17 @@ export default function NewGameSetup({
             const response = await fetch("api/games", {
               method: "POST",
               headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
               },
-              body: JSON.stringify ({
+              body: JSON.stringify({
                 nrValue: parseInt(nrValue),
                 letterRepeatValue,
               }),
             });
-            
+
             const data = await response.json();
-            console.log("Game created:", data)
-            setGameId(data.game)
+            console.log("Game created:", data);
+            setGameId(data.game);
             onStartGame();
           }}
         >

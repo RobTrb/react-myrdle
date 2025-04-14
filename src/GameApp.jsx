@@ -1,4 +1,4 @@
-import { useState, StrictMode } from "react";
+import { useState } from "react";
 import NewGameSetup from "./components/NewGameSetup";
 import Game from "./components/Game";
 import Logo from "./components/Logo";

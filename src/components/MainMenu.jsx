@@ -1,7 +1,6 @@
-import "../styles/MainMenu.css"
+import "../styles/MainMenu.css";
 
-export default function MainMenu({onAboutClick, onNewGameClick}) { 
-
+export default function MainMenu({ onAboutClick, onNewGameClick }) {
   return (
     <div className="mainMenuContainer" alt="Main menu">
       <button onClick={onNewGameClick}>New Game</button>
