@@ -1,7 +1,13 @@
 import "../styles/GuessInput.css";
 import { useState } from "react";
 
-function GuessInput({ setRulesModal }) {
+function GuessInput({
+  setRulesModal,
+  gameId,
+  setCheckedGuess,
+  setCurrentGame,
+  currentGame,
+}) {
   const [text, setText] = useState("");
   const [inputError, setInputError] = useState("guessInputError");
 
@@ -28,14 +34,35 @@ function GuessInput({ setRulesModal }) {
             setText(ev.target.value);
           }}
         ></input>
-        <button className="guessBtn" onClick={(ev) =>{
-            ev.preventDefault
-            if (text.length > 0){
-                setText("")
+        <button
+          className="guessBtn"
+          onClick={async (ev) => {
+            ev.preventDefault;
+            if (text.length > 0) {
+              const lowercaseGuess = text.toLowerCase();
+              const response = await fetch("api/games", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  nrValue: 0,
+                  letterRepeatValue: 0,
+                  guess: lowercaseGuess,
+                  id: gameId,
+                }),
+              });
+              const data = await response.json();
+              setCurrentGame(data.game);
+              setCheckedGuess(data.game.checkedGuess);
+              setText("");
             } else {
-                setInputError("guessInputError active")
+              setInputError("guessInputError active");
             }
-        }}>Guess</button>
+          }}
+        >
+          Guess
+        </button>
       </div>
       <small className={inputError}>You must type in a word</small>
     </div>

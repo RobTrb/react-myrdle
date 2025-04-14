@@ -1,4 +1,7 @@
 import fs from "fs/promises";
+import * as uuid from "uuid";
+
+const GAMES = []
 
 export const serviceAdapter = {
   wordChecker: (guess, answer) => {
@@ -26,7 +29,7 @@ export const serviceAdapter = {
           misplacedLetter !== -1 &&
           checkedGuess[misplacedLetter].result !== "correct"
         ) {
-          checkedGuess[i].result = "misplaced";
+          checkedGuess[i].result = "missplaced";
         }
       }
     }
@@ -42,11 +45,9 @@ export const serviceAdapter = {
   },
   formatTime: (ms) => {
     const totalSeconds = Math.floor(ms / 1000);
-    const minutes = Math.floor(totalSeconds / 60)
-      .toString()
-      .padStart(2, "0");
-    const seconds = (totalSeconds % 60).toString().padStart(2, "0");
-    return `${minutes} minutes and ${seconds} seconds`;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return { minutes, seconds };
   },
   getRandomWord: async (letters, letterRepeat) => {
     const inputFile = await fs.readFile("./server/words_data.json", "utf8");
@@ -64,5 +65,56 @@ export const serviceAdapter = {
     const randomWord = filteredWords[randomIndex].word;
 
     return randomWord;
+  },
+  gameHandler: async (nrValue, letterRepeatValue, id, guess) => {
+    if (nrValue > 0) {
+      const randomWord = await serviceAdapter.getRandomWord(
+        nrValue,
+        letterRepeatValue
+      );
+      const newGame = {
+        correctWord: randomWord,
+        guesses: [],
+        id: uuid.v4(),
+        startTime: new Date(),
+      };
+      GAMES.push(newGame);
+      console.log(newGame.correctWord)
+      return newGame.id;
+    } else {
+      const game = GAMES.find((savedGame) => savedGame.id == id);
+      if (!game) {
+        return null;
+      }
+      game.guesses.push(guess);
+      if (guess === game.correctWord) {
+        game.endTime = new Date();
+        game.checkedGuess = serviceAdapter.wordChecker(
+          guess,
+          game.correctWord
+        ).checkedGuess;
+        game.completionTime = serviceAdapter.formatTime(
+          game.endTime - game.startTime
+        );
+        game.nrOfGuesses = game.guesses.length;
+        game.won = true;
+        return game;
+      } else if (guess != game.correctWord) {
+        game.checkedGuess = serviceAdapter.wordChecker(
+          guess,
+          game.correctWord
+        ).checkedGuess;
+        game.nrOfGuesses = game.guesses.length;
+
+        const redactedGame = {
+          id: game.id,
+          nrOfGuesses: game.nrOfGuesses,
+          checkedGuess: game.checkedGuess,          
+        }
+
+        return redactedGame;
+      }
+    }
+    console.log(game);
   },
 };

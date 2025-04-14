@@ -6,23 +6,11 @@ import Rules from "./Rules";
 import GuessInput from "./GuessInput";
 import LetterPresenter from "./LetterPresenter";
 
-function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
+function Game({ nrValue, letterRepeatValue, onBackToMenu, gameId }) {
   const [rulesModal, setRulesModal] = useState("rulesModalContainer");
-  const [checkedGuess, setCheckedGuess] = useState([]);  
-  
-  /*
-  useEffect(()=>{
-    const startGame = async () =>{
-      const res = await fetch("/api/games",{
-        method: "post"
-      })
-      const gameData = await res.json();
-      setGameId(gameData.id);      
-    }
-
-    startGame();
-  }, [])
-  */
+  const [checkedGuess, setCheckedGuess] = useState([]);
+  const [currentGame, setCurrentGame] = useState(null);
+  const [wonGame, setWonGame] = useState(false); 
 
   return (
     <div className="gameContainer">
@@ -39,10 +27,12 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
           checkedGuess={checkedGuess}
           setCheckedGuess={setCheckedGuess}
         />
-        <GuessInput
-          rulesModal={rulesModal}
+        <GuessInput          
           setRulesModal={setRulesModal}          
           setCheckedGuess={setCheckedGuess}
+          gameId={gameId}
+          setCurrentGame={setCurrentGame}
+          currentGame={currentGame}         
         />
         <QuitGame onBackToMenu={onBackToMenu} />
       </>

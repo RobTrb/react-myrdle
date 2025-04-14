@@ -66,8 +66,8 @@ export default function NewGameSetup({
             });
             
             const data = await response.json();
-            console.log("Game created:", data.id)
-
+            console.log("Game created:", data)
+            setGameId(data.game)
             onStartGame();
           }}
         >

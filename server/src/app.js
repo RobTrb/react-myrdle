@@ -2,6 +2,8 @@ import express from 'express'
 import fs from 'fs/promises'
 import { serviceAdapter } from './utils.js'
 
+const GAMES = []
+
 const app = express()
 
 app.use('/assets', express.static('./dist/assets'))
@@ -24,19 +26,15 @@ app.get('/', async (req, res) =>{
 //API routes
 
 app.post("/api/games", async (req, res)=>{
-    const { nrValue, letterRepeatValue } = req.body;
-    const randomWord = await serviceAdapter.getRandomWord(nrValue, letterRepeatValue)
+    const { nrValue, letterRepeatValue, id, guess } = req.body;    
 
-    const newGame = {
-        correctWord: randomWord,
-        guesses: [],
-        id: "test",
-        startTime: new Date(),
+    const game = await serviceAdapter.gameHandler(nrValue, letterRepeatValue, id, guess);
+    
+    if (game === null){
+        return res.status(404).json({error: "Game not found! Refresh browser and start over"})
     }
-
-    console.log(newGame)
-
-    res.status(201).json({ id: newGame.id });
+    console.log(game)
+    res.status(201).json({ game });
 })
 
 

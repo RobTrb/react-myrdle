@@ -20,6 +20,7 @@ function GameApp({ onBackToMenu }) {
           nrValue={nrValue}
           letterRepeatValue={letterRepeatValue}
           onBackToMenu={onBackToMenu}
+          gameId={gameId}
         />
       ) : (
         <>
