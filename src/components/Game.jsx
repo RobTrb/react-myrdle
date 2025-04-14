@@ -4,6 +4,7 @@ import QuitGame from "./QuitGame";
 import Logo from "./Logo";
 import Rules from "./Rules";
 import GuessInput from "./GuessInput";
+import LetterPresenter from "./LetterPresenter";
 
 function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
   const [rulesModal, setRulesModal] = useState("rulesModalContainer");
@@ -18,6 +19,7 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
           rulesModal={rulesModal}
           setRulesModal={setRulesModal}
         />
+        <LetterPresenter nrValue={nrValue} />
         <GuessInput rulesModal={rulesModal} setRulesModal={setRulesModal} />
         <QuitGame onBackToMenu={onBackToMenu} />
       </>
