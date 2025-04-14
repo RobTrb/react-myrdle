@@ -8,6 +8,7 @@ import LetterPresenter from "./LetterPresenter";
 
 function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
   const [rulesModal, setRulesModal] = useState("rulesModalContainer");
+  const [checkedGuess, setCheckedGuess] = useState([]);
 
   return (
     <div className="gameContainer">
@@ -19,8 +20,16 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu }) {
           rulesModal={rulesModal}
           setRulesModal={setRulesModal}
         />
-        <LetterPresenter nrValue={nrValue} />
-        <GuessInput rulesModal={rulesModal} setRulesModal={setRulesModal} />
+        <LetterPresenter
+          nrValue={nrValue}
+          checkedGuess={checkedGuess}
+          setCheckedGuess={setCheckedGuess}
+        />
+        <GuessInput
+          rulesModal={rulesModal}
+          setRulesModal={setRulesModal}          
+          setCheckedGuess={setCheckedGuess}
+        />
         <QuitGame onBackToMenu={onBackToMenu} />
       </>
     </div>

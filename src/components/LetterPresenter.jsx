@@ -1,9 +1,7 @@
 import "../styles/LetterPresenter.css";
 import { useState, useEffect } from "react";
 
-function LetterPresenter({ nrValue }) {
-  const [checkedGuess, setCheckedGuess] = useState([]);
-
+function LetterPresenter({ nrValue, checkedGuess, setCheckedGuess }) {
   useEffect(() => {
     const newCheckedGuess = [];
     for (let i = 0; i < nrValue; i++) {
@@ -16,9 +14,11 @@ function LetterPresenter({ nrValue }) {
     <div className="letterPresenterContainer">
       {checkedGuess.map((guess, index) => {
         let className = guess.result;
-        return <span key={index} className="letterContainer">
-            <h1 className= {"letter " + className}>{guess.letter}</h1>
-            </span>;
+        return (
+          <span key={index} className="letterContainer">
+            <h1 className={"letter " + className}>{guess.letter}</h1>
+          </span>
+        );
       })}
 
       {console.log(nrValue)}
