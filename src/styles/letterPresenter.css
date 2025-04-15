@@ -1,38 +1,44 @@
 .letterPresenterContainer {
-    width: 100%;        
-    margin-top: auto;        
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .letterContainer {
-    border-radius: 5px;
-    box-shadow: 0px 0px 50px rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0px 0px 70px rgb(43, 43, 43);
 }
 
-.letter {    
-    user-select: none;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 0;
-    padding: 3px;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-size: clamp(20px, 9vw, 400px);
-    font-weight: bold;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);   
+.letter {
+  user-select: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0;
+  padding: 3px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-size: clamp(20px, 9vw, 400px);
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
 .letter.correct {
-    color: green;    
+  color: green;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+    2px 2px 0 black;
 }
 
 .letter.missplaced {
-    color: yellow
+  color: yellow;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+    2px 2px 0 black;
 }
 
 .letter.incorrect {
-    color: red
+  color: red;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black,
+    2px 2px 0 black;
 }

@@ -5,7 +5,8 @@ function GuessInput({
   setRulesModal,
   gameId,
   setCheckedGuess,
-  setCurrentGame,  
+  setCurrentGame,
+  nrValue,  
 }) {
   const [text, setText] = useState("");
   const [inputError, setInputError] = useState("guessInputError");
@@ -26,6 +27,7 @@ function GuessInput({
           className="guessInputField"
           type="text"
           value={text}
+          maxLength={nrValue}          
           onChange={(ev) => {
             if (inputError) {
               setInputError("guessInputError");
@@ -38,7 +40,11 @@ function GuessInput({
           onClick={async (ev) => {
             ev.preventDefault;
             if (text.length > 0) {
-              const lowercaseGuess = text.toLowerCase();
+              let lowerCaseGuess = text.toLowerCase();
+              if (lowerCaseGuess.length < nrValue) {
+                const missingLetters = nrValue - lowerCaseGuess.length;
+                lowerCaseGuess += "*".repeat(missingLetters);
+              }
               const response = await fetch("api/games", {
                 method: "POST",
                 headers: {
@@ -47,14 +53,14 @@ function GuessInput({
                 body: JSON.stringify({
                   nrValue: 0,
                   letterRepeatValue: 0,
-                  guess: lowercaseGuess,
+                  guess: lowerCaseGuess,
                   id: gameId,
                 }),
               });
               const data = await response.json();
               setCurrentGame(data.game);
               setCheckedGuess(data.game.checkedGuess);
-              setText("");
+              setText("");              
             } else {
               setInputError("guessInputError active");
             }

@@ -16,8 +16,7 @@ export default function NewGameSetup({
       <form
         className="newGameSetup"
         onSubmit={(ev) => {
-          ev.preventDefault();
-          console.log(nrValue, letterRepeatValue);
+          ev.preventDefault();          
         }}
       >
         <h1>New Game</h1>
@@ -65,8 +64,7 @@ export default function NewGameSetup({
               }),
             });
 
-            const data = await response.json();
-            console.log("Game created:", data);
+            const data = await response.json();            
             setGameId(data.game);
             onStartGame();
           }}

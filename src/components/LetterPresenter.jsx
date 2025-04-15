@@ -22,10 +22,7 @@ function LetterPresenter({ nrValue, checkedGuess, setCheckedGuess }) {
             <h1 className={"letter " + className}>{guess.letter}</h1>
           </span>
         );
-      })}
-
-      {console.log(nrValue)}
-      {console.log(checkedGuess)}
+      })}      
     </div>
   );
 }

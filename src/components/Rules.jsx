@@ -31,6 +31,10 @@ function Rules({ rulesModal, setRulesModal }) {
             <a> means the letter is incorrect and not found in the word.</a>
           </li>
         </ul>
+        <p className="rulesText">
+          If your guess is shorter than the nr of letters you chose the game
+          will fill in the remaining letters with "*"
+        </p>
       </div>
     </>
   );
