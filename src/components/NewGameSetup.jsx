@@ -16,7 +16,7 @@ export default function NewGameSetup({
       <form
         className="newGameSetup"
         onSubmit={(ev) => {
-          ev.preventDefault();          
+          ev.preventDefault();
         }}
       >
         <h1>New Game</h1>
@@ -52,21 +52,25 @@ export default function NewGameSetup({
           className="startGame"
           onClick={async (ev) => {
             ev.preventDefault();
+            const min = Number(rangeOfLetters.split("-")[0]);
+            const max = Number(rangeOfLetters.split("-")[1]);
+            const inputNr = Number(nrValue);
 
-            const response = await fetch("api/games", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                nrValue: parseInt(nrValue),
-                letterRepeatValue,
-              }),
-            });
-
-            const data = await response.json();            
-            setGameId(data.game);
-            onStartGame();
+            if (inputNr >= min && inputNr <= max) {
+              const response = await fetch("api/games", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  nrValue: parseInt(nrValue),
+                  letterRepeatValue,
+                }),
+              });
+              const data = await response.json();
+              setGameId(data.game);
+              onStartGame();
+            }
           }}
         >
           Start Game

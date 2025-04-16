@@ -26,7 +26,7 @@ function Game({ nrValue, letterRepeatValue, onBackToMenu, gameId }) {
   return (
     <div className="gameContainer">
       {isWonGameActive ? (
-        <WonGame currentGame={currentGame} letterRepeatValue={letterRepeatValue} />
+        <WonGame currentGame={currentGame} letterRepeatValue={letterRepeatValue} nrValue={nrValue} onBackToMenu={onBackToMenu} />
       ) : (
         <>
           <Logo />
