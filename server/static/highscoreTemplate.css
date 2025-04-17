@@ -1,0 +1,36 @@
+.highscoreList {
+    background-color: rgb(255, 255, 255);
+    list-style: none;
+    margin: 0;
+    padding-left: 0;     
+}
+
+li span {
+    width: 17%;
+    height: 50px;
+    border-bottom: 3px solid rgb(70,23,114);
+}
+
+.highscoreList li {
+    display: flex;
+    justify-content: center;       
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 10px;    
+}
+
+.listHeaders span {
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.listHeaders {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+    .listHeaders,
+    .listHighscores {
+      width: 600px;
+    }
+}

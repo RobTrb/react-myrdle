@@ -1,0 +1,26 @@
+.highscoreListContainer {
+    display: flex;
+    flex-direction: column;      
+    width: 70%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 5px solid rgb(70,23,114)
+}
+
+.backToMenu {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 700px) {
+    .highscoreListContainer {
+      width: 100%;
+      overflow-y: scroll;
+      overflow-x: scroll;
+    }
+  }

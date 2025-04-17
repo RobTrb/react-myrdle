@@ -21,7 +21,7 @@ function HighScoreSubmit({
           onSubmit={async (ev) => {
             ev.preventDefault();
             if (playerName.length >= 1) {
-              console.log("form submitted");
+              const wordInUpperCase = currentGame.correctWord.toUpperCase();
               const response = await fetch("api/highscores", {
                 method: "POST",
                 headers: {
@@ -30,20 +30,21 @@ function HighScoreSubmit({
                 body: JSON.stringify({
                   gameID: currentGame.id,
                   playerName: playerName,
-                  word: currentGame.correctWord,
+                  word: wordInUpperCase,
                   nrOfLetters: parseInt(nrValue),
                   repeatingLetters: letterRepeatValue,
                   attempts: parseInt(currentGame.nrOfGuesses),
                   time: `${String(currentGame.completionTime.minutes).padStart(
                     2,
                     "0"
-                  )} minutes and ${String(
-                    currentGame.completionTime.seconds
-                  ).padStart(2, "0")} seconds`,
+                  )} : ${String(currentGame.completionTime.seconds).padStart(
+                    2,
+                    "0"
+                  )} (MM:SS)`,
                 }),
               });
               const data = await response.json();
-              console.log(data.message);
+              //console.log(data.message);
               setPlayerName("");
               setSuccessModalClass("submitSuccessModalContainer active");
             } else {

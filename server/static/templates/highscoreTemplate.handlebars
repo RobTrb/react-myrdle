@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Highscores</title>
+    <link rel="stylesheet" href="/static/highscoreTemplate.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+
+    <ul class="highscoreList">
+      <li class="listHeaders">
+        <span>Name:</span>
+        <span>Word:</span>
+        <span>Nr of letters:</span>
+        <span>Letter repeat on/off:</span>
+        <span>Attempts:</span>
+        <span>Completion time:</span>
+      </li>
+      {{#each highscore}}
+        <li class="listHighscores">
+          <span>{{name}}</span>
+          <span>{{word}}</span>
+          <span>{{nrOfLetters}}</span>
+          <span>{{letterRepeat}}</span>
+          <span>{{attempts}}</span>
+          <span>{{time}}</span>
+        </li>
+      {{/each}}
+    </ul>
+
+  </body>
+</html>

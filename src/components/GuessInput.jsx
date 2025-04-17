@@ -6,7 +6,7 @@ function GuessInput({
   gameId,
   setCheckedGuess,
   setCurrentGame,
-  nrValue,  
+  nrValue,
 }) {
   const [text, setText] = useState("");
   const [inputError, setInputError] = useState("guessInputError");
@@ -27,7 +27,7 @@ function GuessInput({
           className="guessInputField"
           type="text"
           value={text}
-          maxLength={nrValue}          
+          maxLength={nrValue}
           onChange={(ev) => {
             if (inputError) {
               setInputError("guessInputError");
@@ -60,7 +60,7 @@ function GuessInput({
               const data = await response.json();
               setCurrentGame(data.game);
               setCheckedGuess(data.game.checkedGuess);
-              setText("");              
+              setText("");
             } else {
               setInputError("guessInputError active");
             }

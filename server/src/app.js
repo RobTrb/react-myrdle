@@ -2,12 +2,18 @@ import express from "express";
 import fs from "fs/promises";
 import { serviceAdapter } from "./utils.js";
 import mongoose from "mongoose";
-import { Highscore } from "./models.js"
+import { Highscore } from "./models.js";
+import { engine } from "express-handlebars";
 
 const GAMES = [];
 
 const app = express();
 
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
+app.set("views", "./server/static/templates");
+
+app.use("/static", express.static("./server/static"))
 app.use("/assets", express.static("./dist/assets"));
 app.use(express.json());
 
@@ -44,34 +50,54 @@ app.post("/api/games", async (req, res) => {
   res.status(201).json({ game });
 });
 
-app.post("/api/highscores", async (req, res) =>{
-    await mongoose.connect("mongodb://localhost:27017/highscores");
+app.post("/api/highscores", async (req, res) => {
+  await mongoose.connect("mongodb://localhost:27017/highscores");
 
-    const { gameID, playerName, word, nrOfLetters, repeatingLetters, attempts, time } = req.body;
+  const {
+    gameID,
+    playerName,
+    word,
+    nrOfLetters,
+    repeatingLetters,
+    attempts,
+    time,
+  } = req.body;
 
-    const newHighscore = new Highscore({
-        gameID: gameID,
-        playerName: playerName,
-        word: word,
-        nrOfLetters: nrOfLetters,
-        repeatingLetters: repeatingLetters,
-        attempts: attempts,
-        time: time,
-    });
+  const newHighscore = new Highscore({
+    gameID: gameID,
+    playerName: playerName,
+    word: word,
+    nrOfLetters: nrOfLetters,
+    repeatingLetters: repeatingLetters,
+    attempts: attempts,
+    time: time,
+  });
 
-    await newHighscore.save();
+  await newHighscore.save();
 
-    res.status(201).json({ message: "Highscore saved!" })
-})
+  res.status(201).json({ message: "Highscore saved!" });
+});
 
 app.get("/api/highscore", async (req, res) => {
   await mongoose.connect("mongodb://localhost:27017/highscores");
-
   console.log("connection to db made");
 
   const highscores = await Highscore.find();
+  console.log("highscores loaded");
 
-  res.status(201).json({data:highscores});
+  const highscoreList = highscores.map((score) => ({
+    name: score.playerName,
+    word: score.word,
+    nrOfLetters: score.nrOfLetters,
+    letterRepeat: score.repeatingLetters ? "On" : "Off",
+    attempts: score.attempts,
+    time: score.time,
+  }));
+
+  res.render("highscoreTemplate", {
+    layout: false,
+    highscore: highscoreList,
+  });
 });
 
 export default app;

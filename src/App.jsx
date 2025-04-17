@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./styles/App.css";
-import Logo from "./components/Logo";
-import MainMenu from "./components/MainMenu";
-import About from "./components/About";
-import GameApp from "./GameApp";
+import Logo from "./components/Logo.jsx";
+import MainMenu from "./components/MainMenu.jsx";
+import About from "./components/About.jsx";
+import GameApp from "./GameApp.jsx";
+import Highscore from "./components/Highscore.jsx";
 
 function App() {
   const [isAboutActive, setIsAboutActive] = useState(false);
   const [isGameAppActive, setIsGameActive] = useState(false);
+  const [isHighscoreActive, setIsHighscoreActive] = useState(false);
 
   const handleAboutClick = () => {
     setIsAboutActive(true);
@@ -17,9 +19,14 @@ function App() {
     setIsGameActive(true);
   };
 
+  const handleHighscoreClick = () => {
+    setIsHighscoreActive(true);
+  };
+
   const handleBackToMenu = () => {
     setIsAboutActive(false);
     setIsGameActive(false);
+    setIsHighscoreActive(false);
   };
 
   return (
@@ -34,12 +41,17 @@ function App() {
           <>
             <GameApp onBackToMenu={handleBackToMenu} />
           </>
+        ) : isHighscoreActive ? (
+          <>
+            <Highscore onBackToMenu={handleBackToMenu} />
+          </>
         ) : (
           <>
             <Logo />
             <MainMenu
               onAboutClick={handleAboutClick}
               onNewGameClick={handleNewGameClick}
+              onHighscoreClick={handleHighscoreClick}
             />
           </>
         )}
